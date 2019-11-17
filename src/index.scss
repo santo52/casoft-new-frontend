@@ -1,15 +1,22 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
-*,
-*:after,
-*:before{
-    box-sizing: border-box
-} 
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url('/fonts/montserrat/Montserrat-Regular.ttf'); 
+}
+
+@font-face {
+    font-family: Montserrat-ExtraBold;
+    src: url('/fonts/montserrat/Montserrat-ExtraBold.ttf'); 
+}
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url('/fonts/montserrat/Montserrat-Bold.ttf'); 
+}
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif
+    font-family: Montserrat-Regular, sans-serif
 }
 
 img{

@@ -22,13 +22,13 @@ const interceptor = axios.interceptors.response.use(
 )
 
 function successHandler(response){
-    return response
+    return response.data.data
 }
 
 function errorHandler(error){
     
     if(error.response.data.name !== "invalid_token"){
-        return error.response
+        return Promise.reject(error.response)
     }
 
     axios.interceptors.response.eject(interceptor)

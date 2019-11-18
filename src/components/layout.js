@@ -6,7 +6,7 @@ import Content from './content';
 
 function Layout({ children }) {
 
-  const [collapsed, collapse] = useState(true)
+  const [collapsed, collapse] = useState(false)
   const toggleCollapse = () => collapse(!collapsed)
 
   return (

@@ -17,7 +17,8 @@ const Login = () => {
     axiosLogin.post("/oauth/token", new URLSearchParams(formData))
       .then(res => {
         
-        const { accessToken, refreshToken } = res.data
+        const { accessToken, refreshToken, user } = res.data
+        localStorage.setItem('user', JSON.stringify(user))
         localStorage.setItem('accessToken', accessToken)
         localStorage.setItem('refreshToken', refreshToken)
         localStorage.setItem('isAuthenticated', true)

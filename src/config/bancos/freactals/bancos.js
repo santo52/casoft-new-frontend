@@ -26,13 +26,18 @@ export default provideState({
     )),
 
     async deleteBank(effects, id){
-      const bank = await axios.delete(`/banks/${id}`)
-      effects.deleteBankState(bank)
+      axios.delete(`/banks/${id}`)
+      effects.deleteBankState(id)
     },
 
     async loadBanks(effects) {
       const banks = await axios.get('/banks')
       effects.setBanks(banks)
+    },
+
+    async loadBank(effects, id) {
+      const bank = await axios.get(`/banks/${id}`)
+      effects.setBank(bank)
     }
   }
 })

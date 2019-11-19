@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { injectState } from 'freactal'
-import withState from '../freactals/bancos'
+import withState from '../freactals/paises'
 
 
 import { useParams } from "react-router-dom";
@@ -22,21 +22,19 @@ import {
 } from 'reactstrap';
 
 
-const BancosDetalle = ({ state, effects }) => {
+const CountryDetail = ({ state, effects }) => {
 
-  const { bank } = state
+  const { country } = state
   const { id } = useParams()
 
-  console.log(bank)
-
   useEffect(() => {
-    effects.loadBank(id)
+    effects.loadSingle(id)
   }, [])
 
   return (
     <Card>
       <CardHeader className="flex">
-        Bancos
+        Paises
         <div className="card-header-right"></div>
       </CardHeader>
       <CardBody>
@@ -47,15 +45,15 @@ const BancosDetalle = ({ state, effects }) => {
               <FormGroup row>
                 <Label sm={3}>ID</Label>
                 <Col sm={9}>
-                  <Input defaultValue={bank._id} disabled />
+                  <Input defaultValue={country._id} disabled />
                 </Col>
                 <FormFeedback >El campo es requerido</FormFeedback>
               </FormGroup>
 
               <FormGroup row>
-                <Label sm={3}>Nombre del banco</Label>
+                <Label sm={3}>Nombre pais</Label>
                 <Col sm={9}>
-                  <Input defaultValue={bank.name} />
+                  <Input defaultValue={country.name} />
                 </Col>
                 <FormFeedback >El campo es requerido</FormFeedback>
               </FormGroup>
@@ -73,4 +71,4 @@ const BancosDetalle = ({ state, effects }) => {
   )
 }
 
-export default withState(injectState(BancosDetalle))
+export default withState(injectState(CountryDetail))

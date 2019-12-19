@@ -31,7 +31,6 @@ const DocumentTypeDetail = ({ state, effects }) => {
     effects.loadSingle(id)
   }, [])
 
-  console.log(documentType)
 
   return (
     <Card>

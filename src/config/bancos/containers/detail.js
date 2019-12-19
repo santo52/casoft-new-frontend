@@ -27,7 +27,6 @@ const BancosDetalle = ({ state, effects }) => {
   const { bank } = state
   const { id } = useParams()
 
-  console.log(bank)
 
   useEffect(() => {
     effects.loadBank(id)

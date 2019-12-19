@@ -37,7 +37,6 @@ export default provideState({
 
     async loadSingle(effects, id) {
       const item = await axios.get(`/departments/${id}`)
-      console.log(item)
       effects.setSingle(item)
     }
   }

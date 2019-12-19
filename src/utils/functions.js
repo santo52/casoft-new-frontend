@@ -52,10 +52,14 @@ export function calculateEmployeeTotal(user) {
     return formatNumberToMoney(formatMoneyToNumber(income) - formatMoneyToNumber(spend))
 }
 
-export function formatNumberToMoney(value=0, round = 2) {
+export function formatNumberToMoney(value = 0, round = 2) {
     return '$ ' + value.toFixed(round).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
-export function formatMoneyToNumber(value=0, round = 2) {
+export function formatMoneyToNumber(value = 0, round = 2) {
     return +(+value.replace(/[$,]/g, '')).toFixed(round)
+}
+
+export function getCreatedAt(id) {
+
 }

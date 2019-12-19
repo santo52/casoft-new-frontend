@@ -69,15 +69,35 @@ img{
         background: red;
     }
 
-    nav  li .title{
-        border-bottom: 1px solid #536266;
-        position: relative;
-        &.parent:after {
-            content: ">";
-            position: absolute;
-            right: 0;
-            padding-top: 15px;
-            font-weight: bolder;
+    nav li {
+
+        &.active {
+            background: #324e5a
+        }
+
+        ul {
+            display: none;
+        }
+        .title{
+            border-bottom: 1px solid #536266;
+            position: relative;
+            &.parent:after {
+                content: ">";
+                position: absolute;
+                right: 0;
+                padding-right: 15px;
+                font-weight: bolder;
+            }
+        }
+    }
+
+    nav li.collapsed > div {
+        > ul {
+            display: block;
+        }
+        > .title.parent:after {
+            padding-right: 0;
+            padding-top: 35px;
             transform: rotate(90deg);
         }
     }

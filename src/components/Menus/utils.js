@@ -13,7 +13,7 @@ export function getParentMenu(menu, pathname, parent) {
       const childData = getParentMenu(menu, pathname, item._id)
       
       const someChildIsCollapsed = childData.some(({ isCollapsed, menuId }) => item._id === menuId && isCollapsed)
-      const isCollapsed = menu.some(({ menuId, route }) => item._id === menuId && route === pathname)
+      const isCollapsed = menu.some(({ menuId, route }) => item._id === menuId && pathname.indexOf(route) !== -1 )
 
       return {
         ...item,

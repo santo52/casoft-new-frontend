@@ -25,7 +25,7 @@ import {
 
 const BancosDetalle = ({ state, effects }) => {
 
-  const { bank, result } = state
+  const { bank } = state
   const { id } = useParams()
   const history = useHistory();
 

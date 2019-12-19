@@ -29,7 +29,7 @@ const Bancos = ({ state, effects }) => {
         Bancos
         <div className="card-header-right">
           <Link to={`/bancos/nuevo`}>
-            <Button color='success' size="sm" >Nuevo</Button>
+            <Button color="info" size="sm" >Nuevo</Button>
           </Link>
         </div>
       </CardHeader>

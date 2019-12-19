@@ -30,7 +30,7 @@ const AbsenteeismList = ({ state, effects }) => {
         Tipos de ausentismo
         <div className="card-header-right">
           <Link to={`/tipos-de-ausentismo/nuevo`}>
-            <Button color='success' size="sm" >Nuevo</Button>
+            <Button color='info' size="sm" >Nuevo</Button>
           </Link>
         </div>
       </CardHeader>

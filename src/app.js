@@ -6,7 +6,7 @@ import { Route } from "react-router-dom";
 import Home from './home/containers/home'
 import UserList from './rrhh/users/containers/list'
 import UserDetail from './rrhh/users/containers/detail'
-import Nomina from './rrhh/containers/nomina/generate'
+import Nomina from './rrhh/nomina/generate'
 
 import Bancos from './config/bancos/containers/bancos'
 import BancosDetail from './config/bancos/containers/detail'
@@ -51,7 +51,7 @@ const App = () => {
         <UserDetail />
       </Route>
 
-      <Route exact path="/nomina">
+      <Route exact path="/rrhh/nomina">
         <Nomina />
       </Route>
 

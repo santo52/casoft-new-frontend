@@ -5,10 +5,10 @@ import {
   calculateEmployeeSpend,
   calculateEmployeeTotal,
   formatNumberToMoney
-} from '../../../utils/functions'
+} from '../../utils/functions'
 
 import { injectState } from 'freactal'
-import withState from '../../freactals/rrhh'
+import withState from '../freactals/rrhh'
 
 
 import {

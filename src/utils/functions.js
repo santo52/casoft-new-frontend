@@ -29,13 +29,16 @@ export function getYears() {
 }
 
 export function calculateEmployeeIncome(user) {
-    const { salary = {} } = user
-    return formatNumberToMoney(Object.values(salary).reduce((initial, value) => initial + (+value), 0))
+    const salary = typeof user.salary === 'number' ? user.salary : 0
+    /*const { salary = {} } = user
+    
+    return formatNumberToMoney(Object.values(salary).reduce((initial, value) => initial + (+value), 0))*/
+    return formatNumberToMoney(salary)
 }
 
 export function calculateEmployeeSpend(user) {
-    const { salary = {} } = user
-    const basic = +salary.basic
+    const { salary } = user
+    const basic = typeof salary === 'number' ? salary : 0
     const minime = 828116
     const spends = {
         salud: 0.04,

@@ -63,3 +63,13 @@ export function formatMoneyToNumber(value = 0, round = 2) {
 export function getCreatedAt(id) {
 
 }
+
+export function formDataToJSON(e){
+    const formData = new FormData(e.target)
+    const data = {}
+    for (const [key, value] of formData.entries()) {
+      data[key] = value
+    }
+
+    return data
+}

@@ -19,23 +19,18 @@ const Bancos = ({ state, effects }) => {
 
   const { banks } = state
 
-  const [activedTab, setActivedTab] = useState('1')
-  const toggle = (tab) => {
-    if (activedTab !== tab) {
-      setActivedTab(tab)
-    }
-  }
-
   useEffect(() => {
     effects.loadBanks()
   }, [])
 
   return (
     <Card>
-      <CardHeader className="flex">
+      <CardHeader className="flex align-items-center">
         Bancos
         <div className="card-header-right">
-         
+          <Link to={`/bancos/nuevo`}>
+            <Button color='success' size="sm" >Nuevo</Button>
+          </Link>
         </div>
       </CardHeader>
       <CardBody>

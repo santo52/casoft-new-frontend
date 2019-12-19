@@ -30,6 +30,13 @@ export default provideState({
       effects.deleteBankState(id)
     },
 
+    async upsertBank(effects, id, data){
+      const bank = id === 'nuevo' 
+      ? await axios.post(`/banks`, data)
+      : await axios.put(`/banks/${id}`, data)
+      effects.setBank(bank)
+    },
+
     async loadBanks(effects) {
       const banks = await axios.get('/banks')
       effects.setBanks(banks)

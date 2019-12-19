@@ -14,6 +14,9 @@ import BancosDetail from './config/bancos/containers/detail'
 import DocumentTypes from './config/tipos_documento/containers/list'
 import DocumentTypeDetail from './config/tipos_documento/containers/detail'
 
+import AbsenteeismList from './config/tipos_ausentismo/containers/list'
+import AbsenteeismDetail from './config/tipos_ausentismo/containers/detail'
+
 import Cities from './config/ubicacion/ciudades/containers/list'
 import CityDetail from './config/ubicacion/ciudades/containers/detail'
 
@@ -65,6 +68,14 @@ const App = () => {
       </Route>
       <Route path="/tipos-de-documento/:id">
         <DocumentTypeDetail />
+      </Route>
+
+      <Route exact path="/tipos-de-ausentismo">
+        <AbsenteeismList />
+      </Route>
+
+      <Route path="/tipos-de-ausentismo/:id">
+        <AbsenteeismDetail />
       </Route>
 
       <Route exact path="/ciudades">

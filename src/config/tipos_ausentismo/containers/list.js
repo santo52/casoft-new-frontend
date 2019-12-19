@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {injectState} from 'freactal'
-import withState from '../freactals/parafiscales'
+import withState from '../freactals/absencesTypes'
 
 
 import { Link } from "react-router-dom";
@@ -15,9 +15,9 @@ import {
 } from 'reactstrap';
 
 
-const ParafiscalList = ({ state, effects }) => {
+const AbsenteeismList = ({ state, effects }) => {
 
-  const { parafiscals } = state
+  const { absenceTypes } = state
 
 
   useEffect(() => {
@@ -27,9 +27,11 @@ const ParafiscalList = ({ state, effects }) => {
   return (
     <Card>
       <CardHeader className="flex">
-        Parafiscales
+        Tipos de ausentismo
         <div className="card-header-right">
-         
+          <Link to={`/tipos-de-ausentismo/nuevo`}>
+            <Button color='success' size="sm" >Nuevo</Button>
+          </Link>
         </div>
       </CardHeader>
       <CardBody>
@@ -42,15 +44,15 @@ const ParafiscalList = ({ state, effects }) => {
             </tr>
           </thead>
           <tbody>
-            {parafiscals.map(parafiscal =>
-              <tr key={parafiscal._id} >
-                <td>{parafiscal._id}</td>
-                <td>{parafiscal.name}</td>
+            {absenceTypes.map(absenceType =>
+              <tr key={absenceType._id} >
+                <td>{absenceType._id}</td>
+                <td>{absenceType.name}</td>
                 <td>
-                  <Link to={`/parafiscales/${parafiscal._id}`}>
+                  <Link to={`/tipos-de-ausentismo/${absenceType._id}`}>
                     <Button color="primary" size="sm">Editar</Button>
                   </Link>
-                  <Button onClick={() => effects.deleteSingle(parafiscal._id)} color="danger" size="sm">Eliminar</Button>
+                  <Button onClick={() => effects.deleteSingle(absenceType._id)} color="danger" size="sm">Eliminar</Button>
                 </td>
               </tr>
             )}
@@ -62,4 +64,4 @@ const ParafiscalList = ({ state, effects }) => {
   )
 }
 
-export default withState(injectState(ParafiscalList))
+export default withState(injectState(AbsenteeismList))

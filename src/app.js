@@ -4,8 +4,8 @@ import Layout from './components/layout'
 import { Route } from "react-router-dom";
 
 import Home from './home/containers/home'
-import UserList from './rrhh/containers/users/list'
-import UserDetail from './rrhh/containers/users/detail'
+import UserList from './rrhh/users/containers/list'
+import UserDetail from './rrhh/users/containers/detail'
 import Nomina from './rrhh/containers/nomina/generate'
 
 import Bancos from './config/bancos/containers/bancos'
@@ -44,10 +44,10 @@ const App = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/usuarios">
+      <Route exact path="/rrhh/usuarios">
         <UserList />
       </Route>
-      <Route path="/usuarios/:id">
+      <Route path="/rrhh/usuarios/:id">
         <UserDetail />
       </Route>
 

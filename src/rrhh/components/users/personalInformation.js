@@ -27,25 +27,25 @@ const PersonalInformation = ({user}) => (
   <Fragment>
     <FormGroup>
       <Label>Dirección de domicilio</Label>
-      <Input defaultValue={user.address} />
+      <Input name="address" defaultValue={user.address} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Barrio</Label>
-      <Input defaultValue={user.neighborhood} />
+      <Input name="neighborhood" defaultValue={user.neighborhood} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Estrato socioeconomico</Label>
-      <Input defaultValue={user.stratum} />
+      <Input name="stratum" defaultValue={user.stratum} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Grupo sanguineo</Label>
-      <Input defaultValue={user.bloodType} type="select">
+      <Input name="bloodType" defaultValue={user.bloodType} type="select">
         <option value="O-">O-</option>
         <option value="O+">O+</option>
         <option value="A-">A-</option>
@@ -60,7 +60,7 @@ const PersonalInformation = ({user}) => (
 
     <FormGroup>
       <Label>Genero</Label>
-      <Input defaultValue={user.gender} type="select" >
+      <Input name="gender" defaultValue={user.gender} type="select" >
         <option value="M">Masculino</option>
         <option value="F">Femenino</option>
       </Input>
@@ -69,7 +69,7 @@ const PersonalInformation = ({user}) => (
 
     <FormGroup>
       <Label>Estado civil</Label>
-      <Input type="select" defaultValue={user.civilStatus}>
+      <Input name="civilStatus" type="select" defaultValue={user.civilStatus}>
         <option value="1" >Soltero</option>
         <option value="2">Casado</option>
         <option value="3">Unión libre</option>
@@ -81,12 +81,7 @@ const PersonalInformation = ({user}) => (
 
     <FormGroup>
       <Label>Libreta militar</Label>
-      <Input defaultValue={user.militaryCard} />
-    </FormGroup>
-
-
-    <FormGroup>
-      <Button color='success' block>Guardar</Button>
+      <Input name="militaryCard" defaultValue={user.militaryCard} />
     </FormGroup>
   </Fragment>
 )

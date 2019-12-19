@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { injectState } from "freactal";
-import widthState from '../../freactals/rrhh'
+import widthState from '../freactals/usuarios'
 import { Link } from "react-router-dom";
 //import { findAll, deleteOne, uploadMasive } from '../../src/reducers/users/users.actions'
 //import { Link } from '../../routes'
@@ -95,11 +95,13 @@ const UserList = ({ state, effects }) => {
       <CardHeader className="flex">
         Usuarios
         <div className="card-header-right">
-          <Button color="success" size="sm">
+          {/*<Button color="success" size="sm">
             Importar
-            {/*<Input type="file" className="file-hidden" onChange={handleFiles} accept=".csv" />*/}
-          </Button>
-          {/*<Button onClick={() => deleteOne(user._id)} color="info" size="sm">Nuevo</Button>*/}
+            <Input type="file" className="file-hidden" onChange={handleFiles} accept=".csv" />
+          </Button>*/}
+          <Link to="/rrhh/usuarios/nuevo" >
+            <Button color="info" size="sm">Nuevo</Button>
+          </Link>
         </div>
       </CardHeader>
       <CardBody>
@@ -121,7 +123,7 @@ const UserList = ({ state, effects }) => {
                 <td>{user.email}</td>
                 <td>{user.telephone}</td>
                 <td>
-                  <Link to={`/usuarios/${user._id}`} params={{ username: user.username }}>
+                  <Link to={`/rrhh/usuarios/${user._id}`} params={{ username: user.username }}>
                     <Button color="primary" size="sm">Editar</Button>
                   </Link>
                   <Button onClick={() => effects.deleteUser(user._id)} color="danger" size="sm">Eliminar</Button>

@@ -19,31 +19,31 @@ const BasicInformation = (props) => {
   return <Fragment>
     <FormGroup>
       <Label>Nombres</Label>
-      <Input defaultValue={user.firstname} />
+      <Input name="firstname" defaultValue={user.firstname} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Apellido</Label>
-      <Input defaultValue={user.lastname} />
+      <Input name="lastname" defaultValue={user.lastname} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Email</Label>
-      <Input defaultValue={user.email} />
+      <Input name="email" defaultValue={user.email} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Teléfono</Label>
-      <Input defaultValue={user.telephone} />
+      <Input name="telephone" defaultValue={user.telephone} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Tipo de identificación</Label>
-      <Input type="select" defaultValue={user.documentTypeId} >
+      <Input name="documentTypeId" type="select" defaultValue={user.documentTypeId} >
         <option value="" >Seleccionar ...</option>
         {documentTypes.map(docType =>
           <option key={docType._id} value={docType._id} >{docType.name}</option>
@@ -54,13 +54,13 @@ const BasicInformation = (props) => {
 
     <FormGroup>
       <Label>Número de identificación</Label>
-      <Input defaultValue={user.document} />
+      <Input name="document" defaultValue={user.document} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Fecha de expedición documento</Label>
-      <Input type="date" defaultValue={user.documentExpeditionDate} />
+      <Input name="documentExpeditionDate" type="date" defaultValue={user.documentExpeditionDate} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
@@ -72,25 +72,25 @@ const BasicInformation = (props) => {
 
     <FormGroup>
       <Label>EPS</Label>
-      <Input defaultValue={user.eps} />
+      <Input name="eps" defaultValue={user.eps} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Fondo de pensiones</Label>
-      <Input defaultValue={user.afp} />
+      <Input name="afp" defaultValue={user.afp} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Fondo de cesantias</Label>
-      <Input defaultValue={user.afs} />
+      <Input name="afs" defaultValue={user.afs} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Caja de compensación</Label>
-      <Input defaultValue={user.box} />
+      <Input name="box" defaultValue={user.box} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
@@ -101,13 +101,13 @@ const BasicInformation = (props) => {
 
     <FormGroup>
       <Label>Cargo</Label>
-      <Input defaultValue={user.jobTitle} />
+      <Input name="jobTitle" defaultValue={user.jobTitle} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Centro de costos</Label>
-      <Input type="select" defaultValue={user.centerId} >
+      <Input name="centerId" type="select" defaultValue={user.centerId} >
         <option key={'empty'} value="" >Seleccionar ...</option>
         {centers.map(center =>
           <option key={center._id} value={center._id} >{center.name}</option>
@@ -118,7 +118,7 @@ const BasicInformation = (props) => {
 
     <FormGroup>
       <Label>Tipo de contrato</Label>
-      <Input type="select" defaultValue={user.contractTypeID} >
+      <Input name="contractTypeID" type="select" defaultValue={user.contractTypeID} >
         <option value="" >Seleccionar ...</option>
         {contracts.map(contract =>
           <option key={contract._id} value={contract._id} >{contract.name}</option>
@@ -130,18 +130,14 @@ const BasicInformation = (props) => {
 
     <FormGroup>
       <Label>Salario básico</Label>
-      <Input defaultValue={user.salary} />
+      <Input name="salary" defaultValue={user.salary} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
     <FormGroup>
       <Label>Subsidio de transporte</Label>
-      <Input defaultValue={user.salary} />
+      <Input name="salary" defaultValue={user.salary} />
       <FormFeedback >El campo es requerido</FormFeedback>
-    </FormGroup>
-
-    <FormGroup>
-      <Button color='success' block>Guardar</Button>
     </FormGroup>
   </Fragment>
 }

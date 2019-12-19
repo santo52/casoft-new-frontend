@@ -29,7 +29,9 @@ const ParafiscalList = ({ state, effects }) => {
       <CardHeader className="flex">
         Parafiscales
         <div className="card-header-right">
-         
+          <Link to={`/parafiscales/nuevo`}>
+            <Button color='info' size="sm" >Nuevo</Button>
+          </Link>
         </div>
       </CardHeader>
       <CardBody>

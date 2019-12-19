@@ -28,7 +28,7 @@ const Bancos = ({ state, effects }) => {
       <CardHeader className="flex align-items-center">
         Bancos
         <div className="card-header-right">
-          <Link to={`/bancos/nuevo`}>
+          <Link to={`/config/bancos/nuevo`}>
             <Button color="info" size="sm" >Nuevo</Button>
           </Link>
         </div>
@@ -48,7 +48,7 @@ const Bancos = ({ state, effects }) => {
                 <td>{bank._id}</td>
                 <td>{bank.name}</td>
                 <td>
-                  <Link to={`/bancos/${bank._id}`}>
+                  <Link to={`/config/bancos/${bank._id}`}>
                     <Button color="primary" size="sm">Editar</Button>
                   </Link>
                   <Button onClick={() => effects.deleteBank(bank._id)} color="danger" size="sm">Eliminar</Button>

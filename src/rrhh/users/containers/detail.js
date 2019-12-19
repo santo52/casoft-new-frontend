@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import Tabs from '../../components/tabs'
-import Avatar from '../../components/avatar'
+import Tabs from '../components/tabs'
+import Avatar from '../components/avatar'
 import { formDataToJSON } from '../../../utils/functions'
 import { useParams, useHistory } from "react-router-dom";
 
@@ -29,7 +29,7 @@ import {
   AcademicInformation,
   WorkExperience,
   Documents
-} from '../../components/users'
+} from '../components'
 
 
 const DetailtUser = (props) => {

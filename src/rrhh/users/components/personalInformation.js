@@ -1,5 +1,5 @@
 
-import Avatar from '../../components/avatar'
+import Avatar from './avatar'
 import React, { Fragment, useState } from 'react'
 import {
   Form,

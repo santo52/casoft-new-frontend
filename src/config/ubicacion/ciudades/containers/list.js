@@ -29,7 +29,9 @@ const Cities = ({ state, effects }) => {
       <CardHeader className="flex">
         Ciudades
         <div className="card-header-right">
-         
+          <Link to={`/config/ubicacion/ciudades/nuevo`}>
+            <Button color='info' size="sm" >Nuevo</Button>
+          </Link>
         </div>
       </CardHeader>
       <CardBody>
@@ -47,7 +49,7 @@ const Cities = ({ state, effects }) => {
                 <td>{city._id}</td>
                 <td>{city.name}</td>
                 <td>
-                  <Link to={`/ciudades/${city._id}`}>
+                  <Link to={`/config/ubicacion/ciudades/${city._id}`}>
                     <Button color="primary" size="sm">Editar</Button>
                   </Link>
                   <Button onClick={() => effects.deleteSingle(city._id)} color="danger" size="sm">Eliminar</Button>

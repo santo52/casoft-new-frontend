@@ -29,7 +29,9 @@ const MenuList = ({ state, effects }) => {
       <CardHeader className="flex">
         Menus
         <div className="card-header-right">
-         
+          <Link to={`/config/menus/nuevo`}>
+            <Button color='info' size="sm" >Nuevo</Button>
+          </Link>
         </div>
       </CardHeader>
       <CardBody>
@@ -47,7 +49,7 @@ const MenuList = ({ state, effects }) => {
                 <td>{menu._id}</td>
                 <td>{menu.name}</td>
                 <td>
-                  <Link to={`/menus/${menu._id}`}>
+                  <Link to={`/config/menus/${menu._id}`}>
                     <Button color="primary" size="sm">Editar</Button>
                   </Link>
                   <Button onClick={() => effects.deleteSingle(menu._id)} color="danger" size="sm">Eliminar</Button>

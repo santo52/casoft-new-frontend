@@ -30,6 +30,13 @@ export default provideState({
       effects.deleteFromState(id)
     },
 
+    async upsert(effects, id, data){
+      const menu = id === 'nuevo' 
+      ? await axios.post(`/menus`, data)
+      : await axios.put(`/menus/${id}`, data)
+      effects.setSingle(menu)
+    },
+
     async loadAll(effects) {
       const items = await axios.get('/menus')
       effects.setAll(items)

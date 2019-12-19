@@ -41,7 +41,7 @@ const BancosDetalle = ({ state, effects }) => {
     params.append('data', JSON.stringify(data));
     await effects.upsertBank(id, params)
 
-    history.push("/bancos");
+    history.push("/config/bancos");
   }
 
   return (

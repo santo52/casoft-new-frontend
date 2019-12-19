@@ -30,6 +30,13 @@ export default provideState({
       effects.deleteFromState(id)
     },
 
+    async upsert(effects, id, data){
+      const documentType = id === 'nuevo' 
+      ? await axios.post(`/cities`, data)
+      : await axios.put(`/cities/${id}`, data)
+      effects.setSingle(documentType)
+    },
+
     async loadAll(effects) {
       const items = await axios.get('/cities')
       effects.setAll(items)

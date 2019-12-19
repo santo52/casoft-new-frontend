@@ -29,7 +29,9 @@ const Departments = ({ state, effects }) => {
       <CardHeader className="flex">
         Departamentos
         <div className="card-header-right">
-         
+          <Link to={`/config/ubicacion/departamentos/nuevo`}>
+            <Button color='info' size="sm" >Nuevo</Button>
+          </Link>
         </div>
       </CardHeader>
       <CardBody>
@@ -47,7 +49,7 @@ const Departments = ({ state, effects }) => {
                 <td>{department._id}</td>
                 <td>{department.name}</td>
                 <td>
-                  <Link to={`/departamentos/${department._id}`}>
+                  <Link to={`/config/ubicacion/departamentos/${department._id}`}>
                     <Button color="primary" size="sm">Editar</Button>
                   </Link>
                   <Button onClick={() => effects.deleteSingle(department._id)} color="danger" size="sm">Eliminar</Button>

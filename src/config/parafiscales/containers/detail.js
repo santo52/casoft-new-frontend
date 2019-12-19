@@ -3,7 +3,7 @@ import { injectState } from 'freactal'
 import withState from '../freactals/parafiscales'
 
 
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import {
   Form,

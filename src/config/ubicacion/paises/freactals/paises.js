@@ -35,9 +35,15 @@ export default provideState({
       effects.setAll(items)
     },
 
+    async upsert(effects, id, data){
+      const country = id === 'nuevo' 
+      ? await axios.post(`/countries`, data)
+      : await axios.put(`/countries/${id}`, data)
+      effects.setSingle(country)
+    },
+
     async loadSingle(effects, id) {
       const item = await axios.get(`/countries/${id}`)
-      console.log(item)
       effects.setSingle(item)
     }
   }

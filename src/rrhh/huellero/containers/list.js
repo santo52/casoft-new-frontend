@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {injectState} from 'freactal'
-import withState from '../../freactals/huellero'
+import withState from '../freactals/huellero'
 
 
 import { Link } from "react-router-dom";

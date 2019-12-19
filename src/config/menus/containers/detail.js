@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { injectState } from 'freactal'
 import withState from '../freactals/menus'
-
-
-import { useParams } from "react-router-dom";
+import { formDataToJSON } from '../../../utils/functions'
+import { useParams, useHistory } from "react-router-dom";
 
 import {
   Form,
@@ -26,10 +25,22 @@ const MenuDetail = ({ state, effects }) => {
 
   const { menu } = state
   const { id } = useParams()
+  const history = useHistory()
 
   useEffect(() => {
     effects.loadSingle(id)
   }, [])
+
+  const handleSubmit = async (e) => {
+
+    e.preventDefault()
+    const data = formDataToJSON(e)
+    const params = new URLSearchParams();
+    params.append('data', JSON.stringify(data));
+    await effects.upsert(id, params)
+
+    history.push("/config/menus");
+  }
 
   return (
     <Card>
@@ -38,7 +49,7 @@ const MenuDetail = ({ state, effects }) => {
         <div className="card-header-right"></div>
       </CardHeader>
       <CardBody>
-        <Form  >
+        <Form  onSubmit={handleSubmit} >
           <Row>
             <Col sm='12' >
 
@@ -53,7 +64,7 @@ const MenuDetail = ({ state, effects }) => {
               <FormGroup row>
                 <Label sm={3}>Nombre</Label>
                 <Col sm={9}>
-                  <Input defaultValue={menu.name} />
+                  <Input name="name" defaultValue={menu.name} />
                 </Col>
                 <FormFeedback >El campo es requerido</FormFeedback>
               </FormGroup>
@@ -61,7 +72,7 @@ const MenuDetail = ({ state, effects }) => {
               <FormGroup row>
                 <Label sm={3}>Icono</Label>
                 <Col sm={9}>
-                  <Input defaultValue={menu.icon} />
+                  <Input  name="icon" defaultValue={menu.icon} />
                 </Col>
                 <FormFeedback >El campo es requerido</FormFeedback>
               </FormGroup>
@@ -69,7 +80,7 @@ const MenuDetail = ({ state, effects }) => {
               <FormGroup row>
                 <Label sm={3}>Ruta</Label>
                 <Col sm={9}>
-                  <Input defaultValue={menu.route} />
+                  <Input name="route" defaultValue={menu.route} />
                 </Col>
                 <FormFeedback >El campo es requerido</FormFeedback>
               </FormGroup>

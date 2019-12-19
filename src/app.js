@@ -33,8 +33,8 @@ import ParafiscalList from './config/parafiscales/containers/list'
 import ParafiscalDetail from './config/parafiscales/containers/detail'
 
 
-import UploadIncomeDeparture from './rrhh/containers/huellero/upload'
-import IncomeDeparture from './rrhh/containers/huellero/list'
+import UploadIncomeDeparture from './rrhh/huellero/containers/upload'
+import IncomeDeparture from './rrhh/huellero/containers/list'
 
 
 const App = () => {
@@ -56,17 +56,17 @@ const App = () => {
       </Route>
 
 
-      <Route exact path="/bancos">
+      <Route exact path="/config/bancos">
         <Bancos />
       </Route>
-      <Route path="/bancos/:id">
+      <Route path="/config/bancos/:id">
         <BancosDetail />
       </Route>
 
-      <Route exact path="/tipos-de-documento">
+      <Route exact path="/config/tipos-de-documento">
         <DocumentTypes />
       </Route>
-      <Route path="/tipos-de-documento/:id">
+      <Route path="/config/tipos-de-documento/:id">
         <DocumentTypeDetail />
       </Route>
 
@@ -78,31 +78,31 @@ const App = () => {
         <AbsenteeismDetail />
       </Route>
 
-      <Route exact path="/ciudades">
+      <Route exact path="/config/ubicacion/ciudades">
         <Cities />
       </Route>
-      <Route path="/ciudades/:id">
+      <Route path="/config/ubicacion/ciudades/:id">
         <CityDetail />
       </Route>
 
-      <Route exact path="/departamentos">
+      <Route exact path="/config/ubicacion/departamentos">
         <Departments />
       </Route>
-      <Route path="/departamentos/:id">
+      <Route path="/config/ubicacion/departamentos/:id">
         <DepartmentDetail />
       </Route>
 
-      <Route exact path="/paises">
+      <Route exact path="/config/ubicacion/paises">
         <Country />
       </Route>
-      <Route path="/paises/:id">
+      <Route path="/config/ubicacion/paises/:id">
         <CountryDetail />
       </Route>
 
-      <Route exact path="/menus">
+      <Route exact path="/config/menus">
         <MenuList />
       </Route>
-      <Route path="/menus/:id">
+      <Route path="/config/menus/:id">
         <MenuDetail />
       </Route>
 
@@ -114,10 +114,10 @@ const App = () => {
         <ParafiscalDetail />
       </Route>
 
-      <Route exact path="/huellero">
+      <Route exact path="/rrhh/huellero">
         <IncomeDeparture />
       </Route>
-      <Route exact path="/huellero/subir">
+      <Route exact path="/rrhh/huellero/subir">
         <UploadIncomeDeparture />
       </Route>
 

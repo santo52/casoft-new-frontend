@@ -29,7 +29,9 @@ const DocumentTypes = ({ state, effects }) => {
       <CardHeader className="flex">
         Tipos de documento
         <div className="card-header-right">
-         
+          <Link to={`/config/tipos-de-documento/nuevo`}>
+            <Button color='info' size="sm" >Nuevo</Button>
+          </Link>
         </div>
       </CardHeader>
       <CardBody>
@@ -47,7 +49,7 @@ const DocumentTypes = ({ state, effects }) => {
                 <td>{documentType._id}</td>
                 <td>{documentType.name}</td>
                 <td>
-                  <Link to={`/tipos-de-documento/${documentType._id}`}>
+                  <Link to={`/config/tipos-de-documento/${documentType._id}`}>
                     <Button color="primary" size="sm">Editar</Button>
                   </Link>
                   <Button onClick={() => effects.deleteSingle(documentType._id)} color="danger" size="sm">Eliminar</Button>

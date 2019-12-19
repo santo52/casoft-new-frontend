@@ -1,6 +1,6 @@
 
 import { provideState, update } from "freactal";
-import { axios } from '../../utils/axios'
+import { axios } from '../../../utils/axios'
 import produce from 'immer'
 
 const initialState = () => ({

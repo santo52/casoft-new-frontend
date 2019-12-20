@@ -38,7 +38,7 @@ const DetailtUser = (props) => {
   const history = useHistory();
 
   const { state, effects } = props
-  const { user, documentTypes } = state
+  const { user } = state
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [pdf, setPDF] = useState('')
 
@@ -62,6 +62,7 @@ const DetailtUser = (props) => {
 
     e.preventDefault()
     const data = formDataToJSON(e)
+    console.log(data)
     const params = new URLSearchParams();
     params.append('data', JSON.stringify(data));
     await effects.upsert(id, params)

@@ -28,8 +28,24 @@ export function getYears() {
     return years
 }
 
+const salarioMinimoHora6am_9pm = 3450
+const salarioMinimoHoraNocturna9am_6pm = 4658
+
+const salaryData = {
+  salarioMinimoMensual: 828116,
+  salarioMinimoDiario: 27604,
+  salarioMinimoHora6am_9pm,
+  salarioMinimoHoraNocturna9am_6pm,
+  auxilioTransporteMensual: 97032,
+  auxilioTransporteDiario: 3234,
+  horasExtrasDiurnas: salarioMinimoHora6am_9pm * 1.25,
+  horasExtrasNocturnas: salarioMinimoHora6am_9pm * 1.75,
+  horasExtrasDiurnasFestivas: salarioMinimoHora6am_9pm * 2,
+  horasExtrasNocturnasFestivas: salarioMinimoHora6am_9pm * 2.5,
+}
+
 export function calculateEmployeeIncome(user) {
-    const salary = typeof user.salary === 'number' ? user.salary : 0
+    const salary = typeof user.salary === 'number' ? user.salary : salaryData.salarioMinimoMensual
     /*const { salary = {} } = user
     
     return formatNumberToMoney(Object.values(salary).reduce((initial, value) => initial + (+value), 0))*/
@@ -38,7 +54,7 @@ export function calculateEmployeeIncome(user) {
 
 export function calculateEmployeeSpend(user) {
     const { salary } = user
-    const basic = typeof salary === 'number' ? salary : 0
+    const basic = typeof salary === 'number' ? salary : salaryData.salarioMinimoMensual
     const minime = 828116
     const spends = {
         salud: 0.04,

@@ -1,6 +1,7 @@
 
 
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
+import { DropdownList } from 'react-widgets'
 
 import {
   FormGroup,
@@ -15,6 +16,22 @@ const BasicInformation = (props) => {
   const { user, documentTypes, centers, contracts } = props
   const { salary } = user
 
+  const [documentType, setDocumentType] = useState('')
+  const [centerId, setCenterId] = useState('')
+  const [contractId, setContractId] = useState('')
+  
+
+  useEffect(() => {
+    user.documentTypeId && setDocumentType(user.documentTypeId)
+  }, [user.documentTypeId])
+
+  useEffect(() => {
+    user.centerId && setCenterId(user.centerId)
+  }, [user.centerId])
+
+  useEffect(() => {
+    user.contractId && setContractId(user.contractId)
+  }, [user.contractId])
 
   return <Fragment>
     <FormGroup>
@@ -41,14 +58,17 @@ const BasicInformation = (props) => {
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
+
     <FormGroup>
       <Label>Tipo de identificación</Label>
-      <Input name="documentTypeId" type="select" defaultValue={user.documentTypeId} >
-        <option value="" >Seleccionar ...</option>
-        {documentTypes.map(docType =>
-          <option key={docType._id} value={docType._id} >{docType.name}</option>
-        )}
-      </Input>
+      <DropdownList
+        filter
+        data={documentTypes}
+        value={documentTypes.find(doctype => doctype._id === documentType)}
+        onChange={documentType => setDocumentType(documentType._id)}
+        textField="name"
+      />
+      <Input name="documentTypeId" type="hidden" value={documentType} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 
@@ -107,23 +127,27 @@ const BasicInformation = (props) => {
 
     <FormGroup>
       <Label>Centro de costos</Label>
-      <Input name="centerId" type="select" defaultValue={user.centerId} >
-        <option key={'empty'} value="" >Seleccionar ...</option>
-        {centers.map(center =>
-          <option key={center._id} value={center._id} >{center.name}</option>
-        )}
-      </Input>
+      <DropdownList
+        filter
+        data={centers}
+        value={centers.find(center => center._id === centerId)}
+        onChange={center => setCenterId(center._id)}
+        textField="name"
+      />
+      <Input name="centerId" type="hidden" value={centerId} />
     </FormGroup>
-      <FormFeedback >El campo es requerido</FormFeedback>
+    <FormFeedback >El campo es requerido</FormFeedback>
 
     <FormGroup>
       <Label>Tipo de contrato</Label>
-      <Input name="contractTypeID" type="select" defaultValue={user.contractTypeID} >
-        <option value="" >Seleccionar ...</option>
-        {contracts.map(contract =>
-          <option key={contract._id} value={contract._id} >{contract.name}</option>
-        )}
-      </Input>
+      <DropdownList
+        filter
+        data={contracts}
+        value={contracts.find(contract => contract._id === contractId)}
+        onChange={contract => setContractId(contract._id)}
+        textField="name"
+      />
+      <Input name="contractId" type="hidden" value={contractId} />
       <FormFeedback >El campo es requerido</FormFeedback>
     </FormGroup>
 

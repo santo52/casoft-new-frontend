@@ -9,6 +9,7 @@ const initialState = () => ({
   documentTypes: [],
   contracts: [],
   centers: [],
+  parafiscals: [],
 })
 
 export default provideState({
@@ -24,6 +25,8 @@ export default provideState({
     setContracts: update((_, contracts) => ({ contracts })),
 
     setCenters: update((_, centers) => ({ centers })),
+
+    setParafiscals: update((_, parafiscals) => ({ parafiscals })),
 
     deleteUserState: update((state, id) => (
       produce(state, draft => {
@@ -44,14 +47,16 @@ export default provideState({
       const contracts = await axios.get(`/contracts`)
       const documentTypes = await axios.get(`/document-types`)
       const centers = await axios.get(`/centers`)
+      const parafiscals = await axios.get(`/parafiscals`)
       effects.setUser(user)
       effects.setDocumentTypes(documentTypes)
       effects.setContracts(contracts)
       effects.setCenters(centers)
+      effects.setParafiscals(parafiscals)
     },
 
     async getUsers(effects) {
-      const users = await axios.get(`/users`)
+      const users = await axios.get(`/userssss`)
       effects.setUsers(users)
     },
 

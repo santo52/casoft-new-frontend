@@ -23,9 +23,11 @@ import {
 } from 'reactstrap';
 
 
-const Generate = ({state, effects}) => {
 
-  const { users, deleteOne, uploadMasive } = state
+
+const Generate = ({ state, effects }) => {
+
+  const { users, deleteOne, uploadMasive, contracts, parafiscals } = state
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [user, setUser] = useState({ salary: {} })
@@ -103,7 +105,7 @@ const Generate = ({state, effects}) => {
               </tr>
               <tr >
                 <td colspan="6">Salario básico</td>
-                <td colspan="6">{formatNumberToMoney(1200000)}</td>
+                <td colspan="6">{formatNumberToMoney(user.salary)}</td>
               </tr>
               <tr >
                 <td colspan="6">Subsidio de transporte</td>

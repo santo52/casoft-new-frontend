@@ -35,6 +35,10 @@ import ParafiscalDetail from './modules/config/parafiscales/containers/detail'
 import UploadIncomeDeparture from './modules/rrhh/huellero/containers/upload'
 import IncomeDeparture from './modules/rrhh/huellero/containers/list'
 
+import UploadExtraHours from './modules/rrhh/horas_extra/containers/upload'
+import ExtraHours from './modules/rrhh/horas_extra/containers/list'
+import ExtraHourDetail from './modules/rrhh/horas_extra/containers/detail'
+
 
 const App = () => {
   return (
@@ -65,7 +69,7 @@ const App = () => {
 
 
 
-      
+
 
       <Route exact path="/config/bancos">
         <Bancos />
@@ -131,6 +135,20 @@ const App = () => {
       <Route exact path="/rrhh/huellero/subir">
         <UploadIncomeDeparture />
       </Route>
+
+      <Route exact path="/rrhh/horas-extra">
+        <ExtraHours />
+      </Route>
+
+      <Route path="/rrhh/horas-extra/:id">
+        <ExtraHourDetail />
+      </Route>
+
+      <Route exact path="/rrhh/horas-extra/subir">
+        <UploadExtraHours />
+      </Route>
+
+      
 
     </Layout>
   )

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {injectState} from 'freactal'
-import withState from '../freactals/huellero'
+import withState from '../freactals/horas_extra'
 
 
 import { Link } from "react-router-dom";
@@ -17,20 +17,25 @@ import {
 
 const UploadedList = ({ state, effects }) => {
 
-  const { incomesDepartures } = state
+  const { extraHours } = state
 
   useEffect(() => {
     effects.loadAll()
   }, [])
+  
 
   return (
     <Card>
       <CardHeader className="flex">
-        Registros huellero
+        Horas extra
         <div className="card-header-right">
+          <Link to={`/rrhh/horas-extra/nuevo`}>
+            <Button color="info" size="sm">Nuevo</Button>
+          </Link>
           <Link to={`/rrhh/horas-extra/subir`}>
             <Button color="success" size="sm">Importar</Button>
           </Link>
+          
         </div>
       </CardHeader>
       <CardBody>
@@ -45,14 +50,17 @@ const UploadedList = ({ state, effects }) => {
             </tr>
           </thead>
           <tbody>
-            {incomesDepartures.map(incomeDeparture =>
-              <tr key={incomeDeparture._id} >
-                <td>{incomeDeparture.fullName}</td>
-                <td>{incomeDeparture.startDate}</td>
-                <td>{incomeDeparture.startHour}</td>
-                <td>{incomeDeparture.finishHour}</td>
+            {extraHours.map(extraHour =>
+              <tr key={extraHour._id} >
+                <td>{extraHour.fullName}</td>
+                <td>{extraHour.startDate}</td>
+                <td>{extraHour.startHour}</td>
+                <td>{extraHour.finishHour}</td>
                 <td>
-                  <Button onClick={() => effects.deleteSingle(incomeDeparture._id)} color="danger" size="sm">Eliminar</Button>
+                  <Link to={`/rrhh/horas-extra/${extraHour._id}`} >
+                    <Button color="primary" size="sm">Editar</Button>
+                  </Link>
+                  <Button onClick={() => effects.deleteSingle(extraHour._id)} color="danger" size="sm">Eliminar</Button>
                 </td>
               </tr>
             )}

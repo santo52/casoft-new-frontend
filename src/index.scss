@@ -1,4 +1,8 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+$font-path: '~react-widgets/lib/fonts';
+$img-path: '~react-widgets/lib/img';
+
+@import '~react-widgets/lib/scss/react-widgets';
 
 @font-face {
     font-family: Montserrat-Regular;
@@ -275,7 +279,7 @@ main {
     justify-content: flex-end;
     flex-direction: row;
 
-    > button {
+    > * {
         margin-right: 10px
     }
 }

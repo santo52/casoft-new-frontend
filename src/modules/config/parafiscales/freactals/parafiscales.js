@@ -35,6 +35,14 @@ export default provideState({
       effects.setAll(items)
     },
 
+    async upsert(effects, id, data){
+      const parafiscal = id === 'nuevo' 
+      ? await axios.post(`/parafiscals`, data)
+      : await axios.put(`/parafiscals/${id}`, data)
+      effects.setSingle(parafiscal)
+    },
+
+
     async loadSingle(effects, id) {
       const item = await axios.get(`/parafiscals/${id}`)
       effects.setSingle(item)

@@ -29,7 +29,7 @@ const ParafiscalList = ({ state, effects }) => {
       <CardHeader className="flex">
         Parafiscales
         <div className="card-header-right">
-          <Link to={`/parafiscales/nuevo`}>
+          <Link to={`/config/parafiscales/nuevo`}>
             <Button color='info' size="sm" >Nuevo</Button>
           </Link>
         </div>
@@ -40,6 +40,7 @@ const ParafiscalList = ({ state, effects }) => {
             <tr>
               <th>id</th>
               <th>Nombre</th>
+              <th>¿Es un descuento?</th>
               <th></th>
             </tr>
           </thead>
@@ -48,8 +49,9 @@ const ParafiscalList = ({ state, effects }) => {
               <tr key={parafiscal._id} >
                 <td>{parafiscal._id}</td>
                 <td>{parafiscal.name}</td>
+                <td>{parafiscal.isDiscount ? 'Si' : 'No'}</td>
                 <td>
-                  <Link to={`/parafiscales/${parafiscal._id}`}>
+                  <Link to={`/config/parafiscales/${parafiscal._id}`}>
                     <Button color="primary" size="sm">Editar</Button>
                   </Link>
                   <Button onClick={() => effects.deleteSingle(parafiscal._id)} color="danger" size="sm">Eliminar</Button>

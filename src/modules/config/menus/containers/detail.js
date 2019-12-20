@@ -3,6 +3,8 @@ import { injectState } from 'freactal'
 import withState from '../freactals/menus'
 import { formDataToJSON } from '../../../../utils/functions'
 import { useParams, useHistory } from "react-router-dom";
+import { DropdownList } from 'react-widgets'
+
 
 import {
   Form,
@@ -23,13 +25,18 @@ import {
 
 const MenuDetail = ({ state, effects }) => {
 
-  const { menu } = state
+  const { menu, menus } = state
+  const [menuId, setMenuId] = useState(null)
   const { id } = useParams()
   const history = useHistory()
 
   useEffect(() => {
     effects.loadSingle(id)
   }, [])
+
+  useEffect(() => {
+    menu.menuId && setMenuId(menu.menuId)
+  }, [menu.menuId])
 
   const handleSubmit = async (e) => {
 
@@ -57,6 +64,21 @@ const MenuDetail = ({ state, effects }) => {
                 <Label sm={3}>ID</Label>
                 <Col sm={9}>
                   <Input defaultValue={menu._id} disabled />
+                </Col>
+                <FormFeedback >El campo es requerido</FormFeedback>
+              </FormGroup>
+
+              <FormGroup row>
+                <Label sm={3}>Padre</Label>
+                <Col sm={9}>
+                  <DropdownList 
+                    filter
+                    data={menus}
+                    value={menus.find(menu => menu._id === menuId)}
+                    onChange={menu => setMenuId(menu._id)}
+                    textField="name"
+                  />
+                  <Input name="menuId" type="hidden" value={menuId} />
                 </Col>
                 <FormFeedback >El campo es requerido</FormFeedback>
               </FormGroup>

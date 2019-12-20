@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {injectState} from 'freactal'
-import withState from '../freactals/menus'
+import withState from '../freactals/tiposContrato'
 
 
 import { Link } from "react-router-dom";
@@ -15,9 +15,10 @@ import {
 } from 'reactstrap';
 
 
-const MenuList = ({ state, effects }) => {
+const ContractTypes = ({ state, effects }) => {
 
-  const { menus } = state
+  const { contractTypes } = state
+
 
   useEffect(() => {
     effects.loadAll()
@@ -26,9 +27,9 @@ const MenuList = ({ state, effects }) => {
   return (
     <Card>
       <CardHeader className="flex">
-        Menus
+        Tipos de contrato
         <div className="card-header-right">
-          <Link to={`/config/menus/nuevo`}>
+          <Link to={`/config/tipos-de-contrato/nuevo`}>
             <Button color='info' size="sm" >Nuevo</Button>
           </Link>
         </div>
@@ -43,15 +44,15 @@ const MenuList = ({ state, effects }) => {
             </tr>
           </thead>
           <tbody>
-            {menus.map(menu =>
-              <tr key={menu._id} >
-                <td>{menu._id}</td>
-                <td>{menu.name}</td>
+            {contractTypes.map(contractType =>
+              <tr key={contractType._id} >
+                <td>{contractType._id}</td>
+                <td>{contractType.name}</td>
                 <td>
-                  <Link to={`/config/menus/${menu._id}`}>
+                  <Link to={`/config/tipos-de-contrato/${contractType._id}`}>
                     <Button color="primary" size="sm">Editar</Button>
                   </Link>
-                  <Button onClick={() => effects.deleteSingle(menu._id)} color="danger" size="sm">Eliminar</Button>
+                  <Button onClick={() => effects.deleteSingle(contractType._id)} color="danger" size="sm">Eliminar</Button>
                 </td>
               </tr>
             )}
@@ -63,4 +64,4 @@ const MenuList = ({ state, effects }) => {
   )
 }
 
-export default withState(injectState(MenuList))
+export default withState(injectState(ContractTypes))

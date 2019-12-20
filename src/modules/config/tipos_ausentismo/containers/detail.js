@@ -69,6 +69,14 @@ const AbsenteeismDetail = ({ state, effects }) => {
                 </Col>
                 <FormFeedback >El campo es requerido</FormFeedback>
               </FormGroup>
+
+              <FormGroup row>
+                <Label sm={3}>Porcentaje pagado</Label>
+                <Col sm={9}>
+                  <Input type="number" min="0" max="100" step="0.01" name="percentPaid" defaultValue={absenceType.percentPaid} />
+                </Col>
+                <FormFeedback >El campo es requerido</FormFeedback>
+              </FormGroup>
               
               <FormGroup>
                 <Button color='success' block>Guardar</Button>

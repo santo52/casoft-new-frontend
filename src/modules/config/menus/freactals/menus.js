@@ -44,6 +44,7 @@ export default provideState({
 
     async loadSingle(effects, id) {
       const item = await axios.get(`/menus/${id}`)
+      effects.loadAll()
       effects.setSingle(item)
     }
   }

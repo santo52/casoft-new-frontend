@@ -14,6 +14,9 @@ import BancosDetail from './modules/config/bancos/containers/detail'
 import DocumentTypes from './modules/config/tipos_documento/containers/list'
 import DocumentTypeDetail from './modules/config/tipos_documento/containers/detail'
 
+import ContractType from './modules/config/tipos_contrato/containers/list'
+import ContractTypeDetail from './modules/config/tipos_contrato/containers/detail'
+
 import AbsenteeismList from './modules/config/tipos_ausentismo/containers/list'
 import AbsenteeismDetail from './modules/config/tipos_ausentismo/containers/detail'
 
@@ -81,6 +84,13 @@ const App = () => {
         <BancosDetail />
       </Route>
 
+      <Route exact path="/config/tipos-de-contrato">
+        <ContractType />
+      </Route>
+      <Route path="/config/tipos-de-contrato/:id">
+        <ContractTypeDetail />
+      </Route>
+
       <Route exact path="/config/tipos-de-documento">
         <DocumentTypes />
       </Route>
@@ -125,10 +135,10 @@ const App = () => {
         <MenuDetail />
       </Route>
 
-      <Route exact path="/parafiscales">
+      <Route exact path="/config/parafiscales">
         <ParafiscalList />
       </Route>
-      <Route path="/parafiscales/:id">
+      <Route path="/config/parafiscales/:id">
         <ParafiscalDetail />
       </Route>
 

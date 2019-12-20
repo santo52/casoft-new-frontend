@@ -40,6 +40,7 @@ const AbsenteeismList = ({ state, effects }) => {
             <tr>
               <th>id</th>
               <th>Nombre</th>
+              <th>Porcentaje pagado</th>
               <th></th>
             </tr>
           </thead>
@@ -48,6 +49,7 @@ const AbsenteeismList = ({ state, effects }) => {
               <tr key={absenceType._id} >
                 <td>{absenceType._id}</td>
                 <td>{absenceType.name}</td>
+                <td>{absenceType.percentPaid}%</td>
                 <td>
                   <Link to={`/tipos-de-ausentismo/${absenceType._id}`}>
                     <Button color="primary" size="sm">Editar</Button>

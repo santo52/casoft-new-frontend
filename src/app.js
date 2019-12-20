@@ -39,6 +39,9 @@ import UploadExtraHours from './modules/rrhh/horas_extra/containers/upload'
 import ExtraHours from './modules/rrhh/horas_extra/containers/list'
 import ExtraHourDetail from './modules/rrhh/horas_extra/containers/detail'
 
+import Ausentismo from './modules/rrhh/ausentismo/containers/list'
+import DetalleAusentismo from './modules/rrhh/ausentismo/containers/detail'
+
 
 const App = () => {
   return (
@@ -146,6 +149,16 @@ const App = () => {
 
       <Route exact path="/rrhh/horas-extra/subir">
         <UploadExtraHours />
+      </Route>
+
+
+
+      <Route exact path="/rrhh/ausentismo">
+        <Ausentismo />
+      </Route>
+
+      <Route path="/rrhh/ausentismo/:id">
+        <DetalleAusentismo />
       </Route>
 
       

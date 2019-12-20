@@ -6,7 +6,7 @@ function MenuList({ list, pathname, parent }) {
 
   const [parentItems, setParentItems] = useState([])
   useEffect(() => {
-    if (list.length) {
+    if (list && list.length) {
       const items = getParentMenu(list, pathname, parent)
       setParentItems(items)
     }

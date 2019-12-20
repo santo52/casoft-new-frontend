@@ -3,38 +3,37 @@ import Layout from './components/layout'
 
 import { Route } from "react-router-dom";
 
-import Home from './home/containers/home'
-import UserList from './rrhh/users/containers/list'
-import UserDetail from './rrhh/users/containers/detail'
-import Nomina from './rrhh/nomina/generate'
+import Home from './modules/home/containers/home'
+import UserList from './modules/rrhh/users/containers/list'
+import UserDetail from './modules/rrhh/users/containers/detail'
+import Nomina from './modules/rrhh/nomina/generate'
 
-import Bancos from './config/bancos/containers/bancos'
-import BancosDetail from './config/bancos/containers/detail'
+import Bancos from './modules/config/bancos/containers/bancos'
+import BancosDetail from './modules/config/bancos/containers/detail'
 
-import DocumentTypes from './config/tipos_documento/containers/list'
-import DocumentTypeDetail from './config/tipos_documento/containers/detail'
+import DocumentTypes from './modules/config/tipos_documento/containers/list'
+import DocumentTypeDetail from './modules/config/tipos_documento/containers/detail'
 
-import AbsenteeismList from './config/tipos_ausentismo/containers/list'
-import AbsenteeismDetail from './config/tipos_ausentismo/containers/detail'
+import AbsenteeismList from './modules/config/tipos_ausentismo/containers/list'
+import AbsenteeismDetail from './modules/config/tipos_ausentismo/containers/detail'
 
-import Cities from './config/ubicacion/ciudades/containers/list'
-import CityDetail from './config/ubicacion/ciudades/containers/detail'
+import Cities from './modules/config/ubicacion/ciudades/containers/list'
+import CityDetail from './modules/config/ubicacion/ciudades/containers/detail'
 
-import Departments from './config/ubicacion/departamentos/containers/list'
-import DepartmentDetail from './config/ubicacion/departamentos/containers/detail'
+import Departments from './modules/config/ubicacion/departamentos/containers/list'
+import DepartmentDetail from './modules/config/ubicacion/departamentos/containers/detail'
 
-import Country from './config/ubicacion/paises/containers/list'
-import CountryDetail from './config/ubicacion/paises/containers/detail'
+import Country from './modules/config/ubicacion/paises/containers/list'
+import CountryDetail from './modules/config/ubicacion/paises/containers/detail'
 
-import MenuList from './config/menus/containers/list'
-import MenuDetail from './config/menus/containers/detail'
+import MenuList from './modules/config/menus/containers/list'
+import MenuDetail from './modules/config/menus/containers/detail'
 
-import ParafiscalList from './config/parafiscales/containers/list'
-import ParafiscalDetail from './config/parafiscales/containers/detail'
+import ParafiscalList from './modules/config/parafiscales/containers/list'
+import ParafiscalDetail from './modules/config/parafiscales/containers/detail'
 
-
-import UploadIncomeDeparture from './rrhh/huellero/containers/upload'
-import IncomeDeparture from './rrhh/huellero/containers/list'
+import UploadIncomeDeparture from './modules/rrhh/huellero/containers/upload'
+import IncomeDeparture from './modules/rrhh/huellero/containers/list'
 
 
 const App = () => {
@@ -44,17 +43,29 @@ const App = () => {
       <Route exact path="/">
         <Home />
       </Route>
+
+
+
+
       <Route exact path="/rrhh/usuarios">
         <UserList />
       </Route>
+      
       <Route path="/rrhh/usuarios/:id">
         <UserDetail />
       </Route>
+
+
+
+
 
       <Route exact path="/rrhh/nomina">
         <Nomina />
       </Route>
 
+
+
+      
 
       <Route exact path="/config/bancos">
         <Bancos />
@@ -102,10 +113,10 @@ const App = () => {
       <Route exact path="/config/menus">
         <MenuList />
       </Route>
+
       <Route path="/config/menus/:id">
         <MenuDetail />
       </Route>
-
 
       <Route exact path="/parafiscales">
         <ParafiscalList />

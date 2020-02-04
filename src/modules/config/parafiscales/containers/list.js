@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {injectState} from 'freactal'
+import { injectState } from 'freactal'
 import withState from '../freactals/parafiscales'
-
+import { tt } from '../../../../utils/locales'
 
 import { Link } from "react-router-dom";
 
@@ -13,6 +13,7 @@ import {
   CardHeader,
   Input
 } from 'reactstrap';
+import { tsThisType } from '@babel/types';
 
 
 const ParafiscalList = ({ state, effects }) => {
@@ -40,6 +41,7 @@ const ParafiscalList = ({ state, effects }) => {
             <tr>
               <th>id</th>
               <th>Nombre</th>
+              <th>Porcentaje</th>
               <th>¿Es un descuento?</th>
               <th></th>
             </tr>
@@ -49,6 +51,7 @@ const ParafiscalList = ({ state, effects }) => {
               <tr key={parafiscal._id} >
                 <td>{parafiscal._id}</td>
                 <td>{parafiscal.name}</td>
+                <td>{parafiscal.employeePercentage + parafiscal.companyPercentage}% {tt(parafiscal.chronology)}</td>
                 <td>{parafiscal.isDiscount ? 'Si' : 'No'}</td>
                 <td>
                   <Link to={`/config/parafiscales/${parafiscal._id}`}>

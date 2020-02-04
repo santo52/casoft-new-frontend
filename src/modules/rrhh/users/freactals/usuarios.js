@@ -56,7 +56,7 @@ export default provideState({
     },
 
     async getUsers(effects) {
-      const users = await axios.get(`/userssss`)
+      const users = await axios.get(`/users`)
       effects.setUsers(users)
     },
 

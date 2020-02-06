@@ -39,7 +39,8 @@ const Departments = ({ state, effects }) => {
           <thead>
             <tr>
               <th>id</th>
-              <th>Nombre</th>
+              <th>Ciudad</th>
+              <th>Pais</th>
               <th></th>
             </tr>
           </thead>
@@ -48,6 +49,7 @@ const Departments = ({ state, effects }) => {
               <tr key={department._id} >
                 <td>{department._id}</td>
                 <td>{department.name}</td>
+                <td>{department.country}</td>
                 <td>
                   <Link to={`/config/ubicacion/departamentos/${department._id}`}>
                     <Button color="primary" size="sm">Editar</Button>

@@ -23,13 +23,18 @@ import {
 
 const CityDetail = ({ state, effects }) => {
 
-  const { city } = state
+  const { city, departments } = state
+  const [departmentId, setDepartmentId] = useState('')
   const { id } = useParams()
   const history = useHistory()
 
   useEffect(() => {
     effects.loadSingle(id)
   }, [])
+
+  useEffect(() => {
+    setDepartmentId(city.departamentId)
+  }, [city.departamentId])
 
   const handleSubmit = async (e) => {
 
@@ -58,6 +63,18 @@ const CityDetail = ({ state, effects }) => {
                 <Label sm={3}>ID</Label>
                 <Col sm={9}>
                   <Input defaultValue={city._id} disabled />
+                </Col>
+                <FormFeedback >El campo es requerido</FormFeedback>
+              </FormGroup>
+
+              <FormGroup row>
+                <Label sm={3}>Departamento</Label>
+                <Col sm={9}>
+                  <Input type="select" name="departamentId" value={departmentId} onChange={(e) => setDepartmentId(e.target.value)} >
+                    {departments.map(department => (
+                      <option key={department._id} value={department._id}>{department.name}</option>
+                    ))}
+                  </Input>
                 </Col>
                 <FormFeedback >El campo es requerido</FormFeedback>
               </FormGroup>

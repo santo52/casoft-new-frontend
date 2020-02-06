@@ -4,6 +4,7 @@ import produce from 'immer'
 
 function initialState() {
   return {
+    countries: [],
     departments: [],
     department: {}
   }
@@ -15,6 +16,8 @@ export default provideState({
 
 
     setAll: update((_, departments) => ({ departments })),
+
+    setAllCountries: update((_, countries ) => ({ countries })),
 
     setSingle: update((_, department) => ({ department })),
 
@@ -30,20 +33,30 @@ export default provideState({
       effects.deleteFromState(id)
     },
 
-    async upsert(effects, id, data){
-      const documentType = id === 'nuevo' 
-      ? await axios.post(`/departments`, data)
-      : await axios.put(`/departments/${id}`, data)
+    async upsert(effects, id, data) {
+      const documentType = id === 'nuevo'
+        ? await axios.post(`/departments`, data)
+        : await axios.put(`/departments/${id}`, data)
       effects.setSingle(documentType)
     },
 
     async loadAll(effects) {
       const items = await axios.get('/departments')
-      effects.setAll(items)
+      const departments = await Promise.all(
+
+        items.map(async item => {
+          const { name : country } = await axios.get(`/countries/${item.countryId}`)
+          return { ...item, country }
+        })
+      )
+
+      effects.setAll(departments)
     },
 
     async loadSingle(effects, id) {
       const item = await axios.get(`/departments/${id}`)
+      const countries = await axios.get(`/countries`)
+      effects.setAllCountries(countries)
       effects.setSingle(item)
     }
   }

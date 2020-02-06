@@ -23,13 +23,19 @@ import {
 
 const DepartmentDetail = ({ state, effects }) => {
 
-  const { department } = state
+  const { department, countries } = state
+
+  const [countryId, setCountryId] = useState('')
   const { id } = useParams()
   const history = useHistory()
 
   useEffect(() => {
     effects.loadSingle(id)
   }, [])
+
+  useEffect(() => {
+    setCountryId(department.countryId)
+  }, [department.countryId])
 
   const handleSubmit = async (e) => {
 
@@ -62,13 +68,24 @@ const DepartmentDetail = ({ state, effects }) => {
               </FormGroup>
 
               <FormGroup row>
+                <Label sm={3}>Pais</Label>
+                <Col sm={9}>
+                  <Input type="select" name="countryId" value={countryId} onChange={(e) => setCountryId(e.target.value)} >
+                    {countries.map(country => (
+                      <option key={country._id} value={country._id}>{country.name}</option>
+                    ))}
+                  </Input>
+                </Col>
+                <FormFeedback >El campo es requerido</FormFeedback>
+              </FormGroup>
+
+              <FormGroup row>
                 <Label sm={3}>Nombre departamento</Label>
                 <Col sm={9}>
                   <Input  name="name" defaultValue={department.name} />
                 </Col>
                 <FormFeedback >El campo es requerido</FormFeedback>
               </FormGroup>
-
 
               <FormGroup>
                 <Button color='success' block>Guardar</Button>

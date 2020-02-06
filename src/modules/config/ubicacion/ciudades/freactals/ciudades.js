@@ -4,6 +4,7 @@ import produce from 'immer'
 
 function initialState() {
   return {
+    departments: [],
     cities: [],
     city: {}
   }
@@ -15,6 +16,8 @@ export default provideState({
 
 
     setAll: update((_, cities) => ({ cities })),
+
+    setAllDepartments: update((_, departments ) => ({ departments })),
 
     setSingle: update((_, city) => ({ city })),
 
@@ -44,6 +47,8 @@ export default provideState({
 
     async loadSingle(effects, id) {
       const item = await axios.get(`/cities/${id}`)
+      const departments = await axios.get(`/departments`)
+      effects.setAllDepartments(departments)
       effects.setSingle(item)
     }
   }
